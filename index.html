@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Health Monitor</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f6f9;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 600px;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+        }
+        label {
+            display: block;
+            margin-top: 15px;
+            font-weight: bold;
+        }
+        input {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        button {
+            margin-top: 20px;
+            padding: 10px;
+            width: 100%;
+            background: #27ae60;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        button:hover {
+            background: #219150;
+        }
+        .output {
+            margin-top: 20px;
+            padding: 10px;
+            background: #ecf0f1;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Health Monitor</h1>
+
+        <label>Blood Pressure (e.g., 120/80)</label>
+        <input type="text" id="bp">
+
+        <label>Heart Rate (bpm)</label>
+        <input type="number" id="hr">
+
+        <label>Body Temperature (°C)</label>
+        <input type="number" step="0.1" id="temp">
+
+        <label>Weight (kg)</label>
+        <input type="number" step="0.1" id="weight">
+
+        <button onclick="saveData()">Save Data</button>
+
+        <div class="output" id="output"></div>
+    </div>
+
+    <script>
+        function saveData() {
+            const bp = document.getElementById('bp').value;
+            const hr = document.getElementById('hr').value;
+            const temp = document.getElementById('temp').value;
+            const weight = document.getElementById('weight').value;
+
+            const output = `
+                <strong>Saved Data:</strong><br>
+                Blood Pressure: ${bp}<br>
+                Heart Rate: ${hr} bpm<br>
+                Temperature: ${temp} °C<br>
+                Weight: ${weight} kg
+            `;
+
+            document.getElementById('output').innerHTML = output;
+        }
+    </script>
+</body>
+</html>
